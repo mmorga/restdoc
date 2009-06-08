@@ -1,0 +1,10 @@
+History.txt
+Manifest.txt
+README.rdoc
+Rakefile
+lib/restdoc.rb
+script/console
+script/destroy
+script/generate
+test/test_helper.rb
+test/test_restdoc.rb

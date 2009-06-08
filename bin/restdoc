@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+#
+#  RESTDoc: Documentation tool for RESTful Ruby On Rails Applications
+#        (see lib/restdoc/restdoc.rb for more information)
+#
+#  Copyright (c) 2009 Mark Morga
+#  Released under the MIT License
+#
+
+require 'restdoc/restdoc'
+
+begin
+  r = RestDoc::RestDoc.new
+  r.document ARGV
+rescue Interrupt
+  $stderr.puts
+  $stderr.puts "Interrupted"
+  exit 1
+rescue SystemExit
+  raise
+rescue Exception => e
+  if $DEBUG_RESTDOC then
+    $stderr.puts e.message
+    $stderr.puts "#{e.backtrace.join "\n\t"}"
+    $stderr.puts
+  else
+    $stderr.puts "uh-oh! RestDoc had a problem:"
+    $stderr.puts e.message
+    $stderr.puts
+    $stderr.puts "run with --debug for full backtrace"
+  end
+  exit 1
+end
+
