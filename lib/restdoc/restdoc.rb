@@ -3,10 +3,15 @@ require 'rdoc/rdoc'
 require 'rdoc/options'
 require 'rdoc/generators/html_generator'
 
+
 class RestDoc::RestDoc
+  GENERATOR = Struct.new(:file_name, :class_name, :key)
+  GENERATORS = {'html' => GENERATOR.new("rdoc/generators/html_generator",
+                                   "HtmlGenerator".intern,
+                                   "html")}
+  
   def document(args)
-    fn = "something.rb"
-    top_level = RDoc::TopLevel.new(fn)
+    top_level = RDoc::TopLevel.new(args)
 
     context = RDoc::Context.new
 
@@ -16,10 +21,6 @@ class RestDoc::RestDoc
 
     options = Options.instance
 
-    Generator = Struct.new(:file_name, :class_name, :key)
-    GENERATORS = {'html' => Generator.new("rdoc/generators/html_generator",
-                                     "HtmlGenerator".intern,
-                                     "html")}
 
     options.parse([], GENERATORS)
                                  
@@ -45,3 +46,4 @@ class RestDoc::RestDoc
 
     gen.generate(file_info)
   end
+end
