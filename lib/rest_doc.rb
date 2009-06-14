@@ -4,3 +4,6 @@ $:.unshift(File.dirname(__FILE__)) unless
 module RestDoc
   VERSION = '0.0.1'
 end
+
+# files  = ['rest_doc/rest_doc']
+# files.each {|file| require file.gsub(/\.rb$/, '') }

@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 #
 #  RESTDoc: Documentation tool for RESTful Ruby On Rails Applications
-#        (see lib/restdoc/restdoc.rb for more information)
+#        (see lib/rest_doc/rest_doc.rb for more information)
 #
 #  Copyright (c) 2009 Mark Morga
 #  Released under the MIT License
 #
 
-require 'restdoc/restdoc'
+require 'rest_doc/rest_doc'
 
 begin
   r = RestDoc::RestDoc.new

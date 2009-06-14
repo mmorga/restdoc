@@ -1,3 +1,5 @@
+require 'yard'
+
 desc "Creates documentation for the application's RESTful routes"
 task :restdoc => :environment do
   # def template_exists_for(controller, action)
@@ -21,14 +23,26 @@ task :restdoc => :environment do
   #   puts "#{controller_class.to_s} does not exist, it is needed for #{route.defaults.inspect}"
   # end
 
+  ######################################################
+  
   puts "Hola Cholo\n\n\n"
   
-  controller_files = Dir.glob(File.join(RAILS_ROOT, "app", "controllers", "*")).join(" ")
+  controller_files = Dir.glob(File.join(RAILS_ROOT, "app", "controllers", "*"))#.join(" ")
   
-  puts controller_files.pretty_inspect
-
-  require 'restdoc/restdoc'
+  puts controller_files.inspect
   
-  rest_doc = RestDoc::RestDoc.new
-  rest_doc.document(controller_files)
+  # require File.dirname(__FILE__) + '/../lib/rest_doc/rest_doc'
+  # require 'restdoc/restdoc'
+  
+  # RestDoc::RestDoc.run(*ARGV)
+  RestDoc::RestDoc.run(*controller_files)
+  # rest_doc = RestDoc::RestDoc.new
+  # rest_doc.document(controller_files)
+  
+  # YARD::Rake::YardocTask.new do |t|
+  #   t.files   = ['app/controllers/*.rb'] 
+  #   # TODO - provide cmd line options override for these
+  #   t.options = ['-o restdoc', '-b .yardoc_rest', '-r REST_README']
+  #   # add -t for a special template & -p for the template path
+  # end
 end
