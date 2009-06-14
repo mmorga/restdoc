@@ -3,7 +3,15 @@ $:.unshift(File.dirname(__FILE__)) unless
 
 module RestDoc
   VERSION = '0.0.1'
+  ROOT = File.dirname(__FILE__)
 end
 
-# files  = ['rest_doc/rest_doc']
-# files.each {|file| require file.gsub(/\.rb$/, '') }
+require 'yard'
+require 'rest_doc/rest_yardoc'
+require 'rest_doc/generators/rest_action_generator'
+require 'rest_doc/generators/rest_class_generator'
+require 'rest_doc/generators/rest_doc_generator'
+require 'tasks/rest_doc'
+
+files = Dir.glob File.join(RestDoc::ROOT, 'rest_doc/yard_ext/*')
+files.each {|file| require file.gsub(/\.rb$/, '') }

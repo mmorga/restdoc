@@ -1,0 +1,108 @@
+--- !ruby/object:Gem::Specification 
+name: restdoc
+version: !ruby/object:Gem::Version 
+  version: 0.0.1
+platform: ruby
+authors: 
+- mmorga
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-06-13 00:00:00 -05:00
+default_executable: restdoc
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: yard
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 0.2.3
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: newgem
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.4.1
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: hoe
+  type: :development
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.8.0
+    version: 
+description: |-
+  RestDoc reads your Rails project's routes and produces API documentation for your application's
+  RESTful interface.  Additional formatting of the RDoc comments for your methods can be used to 
+  produce API docs that include required parameters, authentication requirements, format of return 
+  values and other useful information for your application's users.
+email: 
+- markmorga@gmail.com
+executables: 
+- restdoc
+extensions: []
+
+extra_rdoc_files: 
+- History.txt
+- Manifest.txt
+- README.rdoc
+files: 
+- History.txt
+- Manifest.txt
+- README.rdoc
+- Rakefile
+- bin/restdoc
+- lib/rest_doc.rb
+- lib/rest_doc/generators/rest_action_generator.rb
+- lib/rest_doc/generators/rest_class_generator.rb
+- lib/rest_doc/generators/rest_doc_generator.rb
+- lib/rest_doc/rest_doc.rb
+- script/console
+- script/destroy
+- script/generate
+- spec/restdoc_spec.rb
+- spec/spec.opts
+- spec/spec_helper.rb
+- tasks/restdoc_tasks.rake
+has_rdoc: true
+homepage: http://github.com/mmorga/restdoc
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --main
+- README.rdoc
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: restdoc
+rubygems_version: 1.3.4
+signing_key: 
+specification_version: 3
+summary: RestDoc reads your Rails project's routes and produces API documentation for your application's RESTful interface
+test_files: []
+
