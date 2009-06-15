@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+<link rel="stylesheet" href="syntax_highlight.css" type="text/css" charset="utf-8" />
+
+    <title>README</title>
+  </head>
+  <body>
+    <div id="content">
+      <div class="section docstring readme">
+        <h1>Application RESTful Routes</h1>
+        <% controller_list.each do |controller| %>
+          <h1><%= controller.titleize %> Controller</h1>
+          <% route_hash[controller].keys.each do |action| %>
+            <% route = route_hash[controller][action] %>
+            <h2><%= action.titleize %> Action</h2>
+            <dl>
+              <dt>Method:</dt> <dd><%= route.conditions[:method].to_s.capitalize %></dd>
+              <dt>URL:</dt> <dd><%= route.segments.inject("") { |str,s| str << s.to_s } %></dd>
+            </dl>
+            
+            <h3>Parameters</h3>
+            <ul>
+            <% route.segments.each do |segment| %>
+              <% if segment.is_a?(ActionController::Routing::DynamicSegment) || segment.is_a?(ActionController::Routing::OptionalFormatSegment) %>
+                <li><%= segment.key %><%= segment.is_optional ? "[optional]" : ""%></li>
+              <% end %>
+            <% end %>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>

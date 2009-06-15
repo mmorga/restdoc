@@ -18,3 +18,4 @@ script/generate
 spec/restdoc_spec.rb
 spec/spec.opts
 spec/spec_helper.rb
+templates/rest_doc/routes_index.erb
