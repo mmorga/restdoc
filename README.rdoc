@@ -31,9 +31,11 @@ Go to the folder where your rails project lives.
 To install the gem within your rails app, edit the config/environment.rb file and add the config.gem 
 commands for yard and restdoc as shown below.
 
-<code>Rails::Initializer.run do |config|
-  config.gem "yard"
-  config.gem "restdoc", :lib => "rest_doc"</code>
+	Rails::Initializer.run do |config|
+	  config.gem "yard"
+	  config.gem "restdoc", :lib => "rest_doc"
+
+	end
 
 [OPTIONAL] To freeze the gems to your vendor directory (recommended) execute:
 
